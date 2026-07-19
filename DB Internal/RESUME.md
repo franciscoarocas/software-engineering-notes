@@ -29,3 +29,67 @@ When you want to choose a database, first check your needs, because if you selec
 Choosing DB is a long-term decision, also tests new versións of your db (Example upgrade from 1.0 to 1.2), because can introduce new bugs, performance issues, etc.
 
 Its doesnt exists a perfect DB engine. Each one has trade-off, you need to select the better engine for your aproach. For example, intensive read, or intensive write, etc.
+
+
+
+## Chapter 1: Introduction and Overview
+
+There are diferents db management systems (DBMS = *Database Management System*). Three main categories:
+
+* OLTP (*Online transaction processing*): Large number requests and transactions (Queries usually short-lived)
+
+* OLAP (*Online analytica processing*): Handle complex aggregations (Often used analytics and data warehousing).
+
+* HTAP (*Hybrid transactional and analytical processing*): Both propeties of two last types.
+
+### DBMS Architecture
+
+Components of DB.
+
+* **Transport Layer:** Entry door, just manage the comunication, responsabilities:
+
+  * Accept client conections
+
+  * Manage comunication protocols
+
+  * Recibe queries
+
+  * Send results to the cliente
+
+* **Query Processor**: Recibe the SQL query and transform it into a executable plan. Main goal is to minimize ececution cost using available information (Index, stadistics, etc) Main responsabilities are:
+
+  * Analize syntaxis (Parse)
+
+  * Validate Query
+
+  * Optimize
+
+  * Choose most efficient performance plan
+
+* **Execution Engine:** Execute the plan generate by the query processor.
+
+  * Ask for data to the storage engine.
+
+  * Apply filters
+
+  *  Join operations
+
+  * Group operations
+
+  * Order operations
+
+  * Return the final results 
+
+* **Storage Engine:** 
+
+  * Store data in disk
+
+  * Get records
+
+  * Manage pages
+
+  * Manage indexs
+
+  * Use memory as caché
+
+  * Operations of read and write 
